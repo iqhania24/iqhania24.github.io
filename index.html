@@ -4,54 +4,61 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Hania's GitHub Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Poppins&display=swap" rel="stylesheet" />
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Poppins', sans-serif;
       max-width: 800px;
       margin: 2rem auto;
       padding: 0 1rem;
-      color: #222;
+      color: #ffb6c1; /* light pink */
       background-color: #f9f9f9;
       line-height: 1.6;
     }
     header {
-      border-bottom: 2px solid #444;
+      border-bottom: 2px solid #ffb6c1;
       margin-bottom: 2rem;
       padding-bottom: 0.5rem;
     }
     h1 {
+      font-family: 'Dancing Script', cursive;
       font-weight: 700;
-      font-size: 2.5rem;
+      font-size: 3rem;
       margin: 0;
-      color: #222;
+      color: #ffb6c1;
     }
     section {
       margin-bottom: 3rem;
     }
     h2 {
       font-weight: 600;
-      color: #333;
-      border-bottom: 1px solid #ddd;
+      color: #ff69b4; /* deeper pink */
+      border-bottom: 1px solid #ffc0cb; /* soft pink border */
       padding-bottom: 0.3rem;
     }
     p {
       font-size: 1.1rem;
     }
     .vocab-term {
-      color: #0056b3;
+      color: #ff69b4;
       cursor: pointer;
-      border-bottom: 1px dotted #0056b3;
+      border-bottom: 1px dotted #ff69b4;
       user-select: none;
       position: relative;
+      transition: color 0.3s ease;
+    }
+    .vocab-term:hover {
+      color: #ff1493; /* bright pink on hover */
     }
     .definition {
       display: none;
-      background: #e9f0fc;
-      border-left: 4px solid #0056b3;
+      background: #ffe4e1; /* very light pink */
+      border-left: 4px solid #ff69b4;
       padding: 0.5rem 1rem;
       margin-top: 0.2rem;
       font-size: 0.95rem;
       line-height: 1.4;
+      color: #b22222; /* dark red for contrast */
     }
     .vocab-term.active + .definition {
       display: block;
@@ -61,22 +68,22 @@
       height: auto;
       display: block;
       margin: 1rem auto;
-      border: 1px solid #ccc;
+      border: 1px solid #ffc0cb;
       border-radius: 4px;
     }
     video {
       display: block;
       max-width: 100%;
       margin: 1rem auto;
-      border: 1px solid #ccc;
+      border: 1px solid #ffc0cb;
       border-radius: 4px;
     }
     footer {
       font-size: 0.9rem;
-      color: #555;
+      color: #ff69b4;
       text-align: center;
       margin-top: 4rem;
-      border-top: 1px solid #ddd;
+      border-top: 1px solid #ffc0cb;
       padding-top: 1rem;
     }
   </style>
@@ -117,7 +124,7 @@
     <source src="internet-how-it-works.mp4" type="video/mp4" />
     Your browser does not support the video tag.
   </video>
-  <p style="font-size: 0.9rem; color: #555; text-align:center;">
+  <p style="font-size: 0.9rem; color: #b22222; text-align:center;">
     (Replace the video source file "internet-how-it-works.mp4" with your own video about the internet)
   </p>
 </section>
