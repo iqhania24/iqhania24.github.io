@@ -2,88 +2,144 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hania's Webpage</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hania's GitHub Page</title>
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to right, #f6d365, #fda085);
-      color: #333;
-      margin: 0;
-      padding: 0;
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      color: #222;
+      background-color: #f9f9f9;
+      line-height: 1.6;
     }
     header {
-      background-color: #ff6f61;
-      color: white;
-      padding: 30px;
-      text-align: center;
-      font-size: 2.5em;
+      border-bottom: 2px solid #444;
+      margin-bottom: 2rem;
+      padding-bottom: 0.5rem;
+    }
+    h1 {
+      font-weight: 700;
+      font-size: 2.5rem;
+      margin: 0;
+      color: #222;
     }
     section {
-      padding: 30px;
+      margin-bottom: 3rem;
     }
     h2 {
-      color: #444;
+      font-weight: 600;
+      color: #333;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 0.3rem;
     }
-    .funny {
-      font-style: italic;
-      color: #555;
+    p {
+      font-size: 1.1rem;
+    }
+    .vocab-term {
+      color: #0056b3;
+      cursor: pointer;
+      border-bottom: 1px dotted #0056b3;
+      user-select: none;
+      position: relative;
+    }
+    .definition {
+      display: none;
+      background: #e9f0fc;
+      border-left: 4px solid #0056b3;
+      padding: 0.5rem 1rem;
+      margin-top: 0.2rem;
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+    .vocab-term.active + .definition {
+      display: block;
     }
     img {
       max-width: 100%;
       height: auto;
-      margin: 20px 0;
-      border-radius: 8px;
-    }
-    iframe {
       display: block;
-      margin: 20px auto;
-      border: none;
-      border-radius: 12px;
+      margin: 1rem auto;
+      border: 1px solid #ccc;
+      border-radius: 4px;
     }
-    .content-box {
-      background-color: rgba(255, 255, 255, 0.85);
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    video {
+      display: block;
+      max-width: 100%;
+      margin: 1rem auto;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    footer {
+      font-size: 0.9rem;
+      color: #555;
+      text-align: center;
+      margin-top: 4rem;
+      border-top: 1px solid #ddd;
+      padding-top: 1rem;
     }
   </style>
 </head>
 <body>
-  <header>
-    Hania
-  </header>
 
-  <section class="content-box">
-    <h2>🧠 How Social Media Algorithms Work</h2>
-    <p>
-      Ever wonder why your feed knows you better than your best friend? 🤔 That's the power of <strong>metadata</strong> — data about your data! Social media algorithms analyze what you click, watch, scroll past (yes, even that awkward cat video 😼), and use <strong>bytes</strong> of information (that’s 8 <strong>bits</strong> per byte!) to create a profile about you.
-    </p>
-    <p>
-      These algorithms aren’t just smart — they’re *lossy* too. They compress your data in ways that throw out the extra fluff (sorry, full cat video), keeping only the juicy parts. Unlike <strong>lossless</strong> compression, which keeps everything, lossy compression says, "Do we really need 20 angles of that one TikTok dance?"
-    </p>
-    <p>
-      Social media also handles <strong>analog data</strong> — like the sound of your voice or a video — by converting it into digital signals. But beware of <strong>roundoff</strong> errors, where the system cuts corners and suddenly your smooth opera solo sounds like a kazoo. 🎶
-    </p>
-    <p class="funny">
-      So next time you’re watching a video about how to toast bread while skydiving, remember: it’s not magic, it’s math... and metadata.
-    </p>
-  </section>
+<header>
+  <h1>Hania</h1>
+</header>
 
-  <section class="content-box">
-    <h2>🖼️ Visuals that Explain Everything</h2>
+<section>
+  <h2>What I Want to Do After High School</h2>
+  <p>
+    After high school, I want to <strong>travel</strong> and explore the world.
+    I am fascinated by how information travels across <span class="vocab-term" tabindex="0">Computer Networks</span><span class="definition">A group of interconnected computing devices capable of sending or receiving data.</span> and how data, like <span class="vocab-term" tabindex="0">analog data</span><span class="definition">Values that change smoothly over time, such as the pitch and volume of a live concert.</span>, gets converted to digital forms.
+  </p>
+</section>
 
-    <h3>Unit 1: Binary & Analog Data</h3>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Analog_digital_analog.svg/1200px-Analog_digital_analog.svg.png" alt="Analog vs Digital Data Diagram" />
+<section>
+  <h2>Unit 1: Data Vocabulary</h2>
+  <p>
+    In computing, a <span class="vocab-term" tabindex="0">bit</span><span class="definition">A binary digit, either 0 or 1.</span> is the smallest unit of data. Eight bits form a <span class="vocab-term" tabindex="0">byte</span><span class="definition">A sequence of 8 bits.</span>. Sometimes, data compression can be <span class="vocab-term" tabindex="0">lossless</span><span class="definition">Compressing data in a way that preserves all data and allows full recovery of the original.</span> or <span class="vocab-term" tabindex="0">lossy</span><span class="definition">Compressing data in a way that discards some data and makes it impossible to recover the original.</span>.
+  </p>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Binary_digital_signal.svg/220px-Binary_digital_signal.svg.png" alt="Illustration of digital binary signal" />
+</section>
 
-    <h3>Unit 2: Data Compression (Lossy vs Lossless)</h3>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Lossy_and_Lossless_Data_Compression_Illustration.svg/1280px-Lossy_and_Lossless_Data_Compression_Illustration.svg.png" alt="Lossy vs Lossless Compression" />
-  </section>
+<section>
+  <h2>Unit 2: Computer Systems and Networks Vocabulary</h2>
+  <p>
+    The <span class="vocab-term" tabindex="0">Internet Protocol (IP)</span><span class="definition">Assigns unique IP addresses to devices and determines how data is routed between them.</span> helps route <span class="vocab-term" tabindex="0">packets</span><span class="definition">Small chunks of data into which larger messages are divided for transmission.</span> through routers along the fastest <span class="vocab-term" tabindex="0">path</span><span class="definition">The series of connections between computing devices on a network, starting with the sender and ending with the receiver.</span>. This system is designed for <span class="vocab-term" tabindex="0">fault tolerance</span><span class="definition">A system’s ability to continue functioning even if individual components fail.</span> and <span class="vocab-term" tabindex="0">scalability</span><span class="definition">The ability of a system to expand or contract to meet new demands.</span>.
+  </p>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Internet_map_1024_-_transparent_background.png/300px-Internet_map_1024_-_transparent_background.png" alt="Illustrative map of internet connections" />
+</section>
 
-  <section class="content-box">
-    <h2>🎥 How the Internet Works (Funny + Fast)</h2>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/Dxcc6ycZ73M" title="How the Internet Works in 5 Minutes" allowfullscreen></iframe>
-    <p class="funny">Think of the internet like a pizza delivery guy… but with memes instead of pepperoni.</p>
-  </section>
+<section>
+  <h2>How the Internet Works</h2>
+  <video controls>
+    <source src="internet-how-it-works.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+  <p style="font-size: 0.9rem; color: #555; text-align:center;">
+    (Replace the video source file "internet-how-it-works.mp4" with your own video about the internet)
+  </p>
+</section>
+
+<footer>
+  &copy; 2025 Hania
+</footer>
+
+<script>
+  // Toggle vocabulary definitions on click or keyboard Enter/Space
+  document.querySelectorAll('.vocab-term').forEach(term => {
+    term.addEventListener('click', () => {
+      term.classList.toggle('active');
+    });
+    term.addEventListener('keydown', e => {
+      if(e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        term.classList.toggle('active');
+      }
+    });
+  });
+</script>
+
 </body>
 </html>
