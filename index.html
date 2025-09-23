@@ -206,4 +206,35 @@
   <p>
     Social media feeds are personalized using <span class="vocab-term" tabindex="0">algorithms</span>
     <span class="definition">A set of rules a computer follows to solve problems or make decisions.</span>. 
-    These algorithms look at what you like, comment on, and share — and then try to guess
+    These algorithms look at what you like, comment on, and share — and then try to guess what you'll want to see next. It's like your feed is being custom-built for you in real time!
+  </p>
+
+  <p><strong>Fun Fact:</strong> TikTok’s algorithm tracks how long you watch a video — even if you don’t like or comment on it!</p>
+
+  <img src="social-algorithms.jpg" alt="Illustration of social media algorithms sorting content" />
+  <p class="sub-sub-text">(Replace "social-algorithms.jpg" with your own image if needed!)</p>
+</section>
+
+<footer>
+  &copy; 2025 Hania
+</footer>
+
+<script>
+  // Toggle vocabulary definitions
+  document.querySelectorAll('.vocab-term').forEach(term => {
+    term.addEventListener('click', () => {
+      const def = term.nextElementSibling;
+      def.classList.toggle('show');
+    });
+    term.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        const def = term.nextElementSibling;
+        def.classList.toggle('show');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
