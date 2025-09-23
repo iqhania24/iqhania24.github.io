@@ -10,66 +10,96 @@
       box-sizing: border-box;
       scroll-behavior: smooth;
     }
+
     body {
       font-family: 'Poppins', sans-serif;
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 0 1rem;
+      margin: 0;
+      padding: 0;
+      background-color: #e4fbe4; /* lighter green */
       color: #ffb6c1;
-      background-color: #d6f5d6;
-      line-height: 1.6;
-      position: relative;
       overflow-x: hidden;
+      position: relative;
     }
-    header, section, footer {
-      animation: fadeInUp 0.8s ease-out;
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(circle, #ffffff 1px, transparent 1px);
+      background-size: 20px 20px;
+      opacity: 0.1;
+      z-index: -2;
     }
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(40px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+
+    /* Snow animation */
+    body::after {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      background-image: url('https://raw.githubusercontent.com/niklasvh/snowflake-animations/master/snow1.png'),
+                        url('https://raw.githubusercontent.com/niklasvh/snowflake-animations/master/snow2.png'),
+                        url('https://raw.githubusercontent.com/niklasvh/snowflake-animations/master/snow3.png');
+      animation: snow 30s linear infinite;
+      z-index: -1;
     }
+
+    @keyframes snow {
+      0% { background-position: 0px 0px, 0px 0px, 0px 0px; }
+      100% { background-position: 1000px 1000px, 800px 800px, 600px 600px; }
+    }
+
+    main {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 1rem;
+    }
+
     header {
-      border-bottom: 2px solid #ffb6c1;
-      margin-bottom: 2rem;
-      padding-bottom: 0.5rem;
+      text-align: center;
+      margin-bottom: 3rem;
     }
+
     h1 {
       font-family: 'Dancing Script', cursive;
-      font-weight: 700;
-      font-size: 3rem;
-      margin: 0;
-      color: #ffb6c1;
+      font-size: 3.5rem;
+      color: #ff69b4;
       text-shadow: 2px 2px #fff0f5;
     }
-    h2 {
-      font-family: 'Great Vibes', cursive;
-      font-weight: 400;
-      color: #ff69b4;
-      border-bottom: 1px solid #ffc0cb;
-      padding-bottom: 0.3rem;
-      font-size: 2rem;
-      margin-top: 0;
-    }
-    p {
-      font-size: 1.1rem;
-    }
+
     section {
       background-color: white;
-      padding: 1.5rem 2rem;
-      margin-bottom: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
+      padding: 3rem 2rem;
+      border-radius: 15px;
+      margin-bottom: 3rem;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: fadeInUp 0.8s ease forwards;
     }
+
     section:hover {
       transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     }
+
+    h2 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.5rem;
+      color: #ff69b4;
+      margin-bottom: 1.2rem;
+    }
+
+    p {
+      font-size: 1.3rem;
+      line-height: 1.8;
+    }
+
     .vocab-term {
       color: #ff69b4;
       cursor: pointer;
@@ -78,146 +108,143 @@
       position: relative;
       transition: color 0.3s ease;
     }
+
     .vocab-term::after {
       content: " ⓘ";
       font-size: 0.9em;
       color: #ff69b4;
     }
+
     .vocab-term:hover {
       color: #ff1493;
     }
+
     .definition {
-      font-family: 'Great Vibes', cursive;
-      color: #b22222;
+      display: none;
       background: #ffe4e1;
       border-left: 4px solid #ff69b4;
-      padding: 0.5rem 1rem;
-      margin-top: 0.2rem;
-      font-size: 0.95rem;
-      line-height: 1.4;
-      display: none;
+      padding: 1rem;
+      margin-top: 0.5rem;
+      font-family: 'Great Vibes', cursive;
+      font-size: 1.1rem;
+      color: #b22222;
+      border-radius: 8px;
       animation: slideDown 0.4s ease-out;
     }
-    @keyframes slideDown {
-      from { opacity: 0; height: 0; }
-      to { opacity: 1; height: auto; }
-    }
+
     .definition.show {
       display: block;
     }
+
     img, video {
       max-width: 100%;
-      margin: 1rem auto;
-      border: 1px solid #ffc0cb;
-      border-radius: 4px;
+      margin: 2rem auto;
       display: block;
-      box-shadow: 0 0 8px rgba(255,182,193,0.3);
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(255,182,193,0.3);
     }
+
     .sub-sub-text {
+      text-align: center;
       font-family: 'Indie Flower', cursive;
-      font-size: 0.9rem;
+      font-size: 1rem;
       color: #b22222;
-      font-weight: 400;
-      text-align: center;
+      margin-top: 1rem;
     }
+
     footer {
-      font-family: 'Indie Flower', cursive;
-      font-size: 0.9rem;
-      color: #ff69b4;
       text-align: center;
-      margin-top: 4rem;
-      border-top: 1px solid #ffc0cb;
-      padding-top: 1rem;
+      font-family: 'Indie Flower', cursive;
+      color: #ff69b4;
+      font-size: 1rem;
+      margin: 4rem 0 2rem;
     }
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: radial-gradient(circle, #ffe4e1 1px, transparent 1px);
-      background-size: 20px 20px;
-      opacity: 0.2;
-      z-index: -1;
+
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(40px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideDown {
+      0% { opacity: 0; transform: scaleY(0); height: 0; }
+      100% { opacity: 1; transform: scaleY(1); height: auto; }
     }
   </style>
 </head>
 <body>
 
-<header>
-  <h1>Hania</h1>
-</header>
+<main>
+  <header>
+    <h1>Hania</h1>
+  </header>
 
-<section>
-  <h2>What I Want to Do After High School</h2>
-  <p>
-    After high school, I want to <strong>travel</strong> and explore the world.
-    I am fascinated by how information travels across <span class="vocab-term" tabindex="0">Computer Networks</span>
-    <span class="definition">A group of interconnected computing devices capable of sending or receiving data.</span> and how data, like <span class="vocab-term" tabindex="0">analog data</span>
-    <span class="definition">Values that change smoothly over time, such as the pitch and volume of a live concert.</span>, gets converted to digital forms.
-  </p>
-</section>
+  <section>
+    <h2>What I Want to Do After High School</h2>
+    <p>
+      After high school, I want to <strong>travel</strong> and explore the world.
+      I am fascinated by how information travels across <span class="vocab-term" tabindex="0">Computer Networks</span>
+      <span class="definition">A group of interconnected computing devices capable of sending or receiving data.</span> and how data, like <span class="vocab-term" tabindex="0">analog data</span>
+      <span class="definition">Values that change smoothly over time, such as the pitch and volume of a live concert.</span>, gets converted to digital forms.
+    </p>
+  </section>
 
-<section>
-  <h2>Unit 1: Data Vocabulary</h2>
-  <p>
-    In computing, a <span class="vocab-term" tabindex="0">bit</span>
-    <span class="definition">A binary digit, either 0 or 1.</span> is the smallest unit of data. 
-    Eight bits form a <span class="vocab-term" tabindex="0">byte</span>
-    <span class="definition">A sequence of 8 bits.</span>. Sometimes, data compression can be 
-    <span class="vocab-term" tabindex="0">lossless</span>
-    <span class="definition">Compressing data in a way that preserves all data and allows full recovery of the original.</span> 
-    or <span class="vocab-term" tabindex="0">lossy</span>
-    <span class="definition">Compressing data in a way that discards some data and makes it impossible to recover the original.</span>.
-  </p>
-  <img src="binarysignal.png" alt="Illustration of digital binary signal" />
-</section>
+  <section>
+    <h2>Unit 1: Data Vocabulary</h2>
+    <p>
+      In computing, a <span class="vocab-term" tabindex="0">bit</span>
+      <span class="definition">A binary digit, either 0 or 1.</span> is the smallest unit of data. 
+      Eight bits form a <span class="vocab-term" tabindex="0">byte</span>
+      <span class="definition">A sequence of 8 bits.</span>. Sometimes, data compression can be 
+      <span class="vocab-term" tabindex="0">lossless</span>
+      <span class="definition">Compressing data in a way that preserves all data and allows full recovery of the original.</span> 
+      or <span class="vocab-term" tabindex="0">lossy</span>
+      <span class="definition">Compressing data in a way that discards some data and makes it impossible to recover the original.</span>.
+    </p>
+    <img src="binarysignal.png" alt="Illustration of digital binary signal" />
+  </section>
 
-<section>
-  <h2>Unit 2: Computer Systems and Networks Vocabulary</h2>
-  <p>
-    The <span class="vocab-term" tabindex="0">Internet Protocol (IP)</span>
-    <span class="definition">Assigns unique IP addresses to devices and determines how data is routed between them.</span> helps route 
-    <span class="vocab-term" tabindex="0">packets</span>
-    <span class="definition">Small chunks of data into which larger messages are divided for transmission.</span> through routers along the fastest 
-    <span class="vocab-term" tabindex="0">path</span>
-    <span class="definition">The series of connections between computing devices on a network, starting with the sender and ending with the receiver.</span>. 
-    This system is designed for <span class="vocab-term" tabindex="0">fault tolerance</span>
-    <span class="definition">A system’s ability to continue functioning even if individual components fail.</span> and 
-    <span class="vocab-term" tabindex="0">scalability</span>
-    <span class="definition">The ability of a system to expand or contract to meet new demands.</span>.
-  </p>
-  <img src="map.jpg" alt="Illustrative map of internet connections" />
-</section>
+  <section>
+    <h2>Unit 2: Computer Systems and Networks Vocabulary</h2>
+    <p>
+      The <span class="vocab-term" tabindex="0">Internet Protocol (IP)</span>
+      <span class="definition">Assigns unique IP addresses to devices and determines how data is routed between them.</span> helps route 
+      <span class="vocab-term" tabindex="0">packets</span>
+      <span class="definition">Small chunks of data into which larger messages are divided for transmission.</span> through routers along the fastest 
+      <span class="vocab-term" tabindex="0">path</span>
+      <span class="definition">The series of connections between computing devices on a network, starting with the sender and ending with the receiver.</span>. 
+      This system is designed for <span class="vocab-term" tabindex="0">fault tolerance</span>
+      <span class="definition">A system’s ability to continue functioning even if individual components fail.</span> and 
+      <span class="vocab-term" tabindex="0">scalability</span>
+      <span class="definition">The ability of a system to expand or contract to meet new demands.</span>.
+    </p>
+    <img src="map.jpg" alt="Illustrative map of internet connections" />
+  </section>
 
-<section>
-  <h2>How the Internet Works</h2>
-  <video controls>
-    <source src="internet-how-it-works.mp4" type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
-  <p class="sub-sub-text">(Replace the video source file "internet-how-it-works.mp4" with your own video about the internet)</p>
-</section>
+  <section>
+    <h2>How the Internet Works</h2>
+    <video controls>
+      <source src="internet-how-it-works.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+    <p class="sub-sub-text">(Replace the video source file "internet-how-it-works.mp4" with your own video about the internet)</p>
+  </section>
 
-<!-- 🌟 NEW SECTION: Social Media Algorithms -->
-<section>
-  <h2>Social Media Algorithms</h2>
-  <p>
-    Social media feeds are personalized using <span class="vocab-term" tabindex="0">algorithms</span>
-    <span class="definition">A set of rules a computer follows to solve problems or make decisions.</span>. 
-    These algorithms look at what you like, comment on, and share — and then try to guess what you'll want to see next. It's like your feed is being custom-built for you in real time!
-  </p>
+  <section>
+    <h2>Social Media Algorithms</h2>
+    <p>
+      Social media feeds are personalized using <span class="vocab-term" tabindex="0">algorithms</span>
+      <span class="definition">A set of rules a computer follows to solve problems or make decisions.</span>. 
+      These algorithms look at what you like, comment on, and share — and then try to guess what you'll want to see next. It's like your feed is being custom-built for you in real time!
+    </p>
+    <p><strong>Fun Fact:</strong> TikTok’s algorithm tracks how long you watch a video — even if you don’t like or comment on it!</p>
+    <img src="social-algorithms.jpg" alt="Illustration of social media algorithms sorting content" />
+    <p class="sub-sub-text">(Replace "social-algorithms.jpg" with your own image if needed!)</p>
+  </section>
 
-  <p><strong>Fun Fact:</strong> TikTok’s algorithm tracks how long you watch a video — even if you don’t like or comment on it!</p>
-
-  <img src="social-algorithms.jpg" alt="Illustration of social media algorithms sorting content" />
-  <p class="sub-sub-text">(Replace "social-algorithms.jpg" with your own image if needed!)</p>
-</section>
-
-<footer>
-  &copy; 2025 Hania
-</footer>
+  <footer>
+    &copy; 2025 Hania
+  </footer>
+</main>
 
 <script>
   // Toggle vocabulary definitions
