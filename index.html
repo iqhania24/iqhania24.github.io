@@ -6,14 +6,33 @@
   <title>Hania's GitHub Page</title>
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Great+Vibes&family=Indie+Flower&family=Poppins&display=swap" rel="stylesheet" />
   <style>
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
     body {
       font-family: 'Poppins', sans-serif;
       max-width: 800px;
       margin: 2rem auto;
       padding: 0 1rem;
-      color: #ffb6c1; /* light pink text */
-      background-color: #d6f5d6; /* pastel mint green background */
+      color: #ffb6c1;
+      background-color: #d6f5d6;
       line-height: 1.6;
+      position: relative;
+      overflow-x: hidden;
+    }
+    header, section, footer {
+      animation: fadeInUp 0.8s ease-out;
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
     header {
       border-bottom: 2px solid #ffb6c1;
@@ -26,14 +45,16 @@
       font-size: 3rem;
       margin: 0;
       color: #ffb6c1;
+      text-shadow: 2px 2px #fff0f5;
     }
     h2 {
       font-family: 'Great Vibes', cursive;
       font-weight: 400;
-      color: #ff69b4; /* deeper pink */
-      border-bottom: 1px solid #ffc0cb; /* soft pink border */
+      color: #ff69b4;
+      border-bottom: 1px solid #ffc0cb;
       padding-bottom: 0.3rem;
       font-size: 2rem;
+      margin-top: 0;
     }
     p {
       font-size: 1.1rem;
@@ -44,6 +65,10 @@
       margin-bottom: 2rem;
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    section:hover {
+      transform: translateY(-5px);
     }
     .vocab-term {
       color: #ff69b4;
@@ -53,38 +78,40 @@
       position: relative;
       transition: color 0.3s ease;
     }
+    .vocab-term::after {
+      content: " ⓘ";
+      font-size: 0.9em;
+      color: #ff69b4;
+    }
     .vocab-term:hover {
-      color: #ff1493; /* bright pink on hover */
+      color: #ff1493;
     }
     .definition {
       font-family: 'Great Vibes', cursive;
-      font-weight: 400;
-      color: #b22222; /* dark red for contrast */
-      display: none;
-      background: #ffe4e1; /* very light pink */
+      color: #b22222;
+      background: #ffe4e1;
       border-left: 4px solid #ff69b4;
       padding: 0.5rem 1rem;
       margin-top: 0.2rem;
       font-size: 0.95rem;
       line-height: 1.4;
+      display: none;
+      animation: slideDown 0.4s ease-out;
     }
-    .vocab-term.active + .definition {
+    @keyframes slideDown {
+      from { opacity: 0; height: 0; }
+      to { opacity: 1; height: auto; }
+    }
+    .definition.show {
       display: block;
     }
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-      margin: 1rem auto;
-      border: 1px solid #ffc0cb;
-      border-radius: 4px;
-    }
-    video {
-      display: block;
+    img, video {
       max-width: 100%;
       margin: 1rem auto;
       border: 1px solid #ffc0cb;
       border-radius: 4px;
+      display: block;
+      box-shadow: 0 0 8px rgba(255,182,193,0.3);
     }
     .sub-sub-text {
       font-family: 'Indie Flower', cursive;
@@ -102,6 +129,18 @@
       border-top: 1px solid #ffc0cb;
       padding-top: 1rem;
     }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(circle, #ffe4e1 1px, transparent 1px);
+      background-size: 20px 20px;
+      opacity: 0.2;
+      z-index: -1;
+    }
   </style>
 </head>
 <body>
@@ -114,14 +153,23 @@
   <h2>What I Want to Do After High School</h2>
   <p>
     After high school, I want to <strong>travel</strong> and explore the world.
-    I am fascinated by how information travels across <span class="vocab-term" tabindex="0">Computer Networks</span><span class="definition">A group of interconnected computing devices capable of sending or receiving data.</span> and how data, like <span class="vocab-term" tabindex="0">analog data</span><span class="definition">Values that change smoothly over time, such as the pitch and volume of a live concert.</span>, gets converted to digital forms.
+    I am fascinated by how information travels across <span class="vocab-term" tabindex="0">Computer Networks</span>
+    <span class="definition">A group of interconnected computing devices capable of sending or receiving data.</span> and how data, like <span class="vocab-term" tabindex="0">analog data</span>
+    <span class="definition">Values that change smoothly over time, such as the pitch and volume of a live concert.</span>, gets converted to digital forms.
   </p>
 </section>
 
 <section>
   <h2>Unit 1: Data Vocabulary</h2>
   <p>
-    In computing, a <span class="vocab-term" tabindex="0">bit</span><span class="definition">A binary digit, either 0 or 1.</span> is the smallest unit of data. Eight bits form a <span class="vocab-term" tabindex="0">byte</span><span class="definition">A sequence of 8 bits.</span>. Sometimes, data compression can be <span class="vocab-term" tabindex="0">lossless</span><span class="definition">Compressing data in a way that preserves all data and allows full recovery of the original.</span> or <span class="vocab-term" tabindex="0">lossy</span><span class="definition">Compressing data in a way that discards some data and makes it impossible to recover the original.</span>.
+    In computing, a <span class="vocab-term" tabindex="0">bit</span>
+    <span class="definition">A binary digit, either 0 or 1.</span> is the smallest unit of data. 
+    Eight bits form a <span class="vocab-term" tabindex="0">byte</span>
+    <span class="definition">A sequence of 8 bits.</span>. Sometimes, data compression can be 
+    <span class="vocab-term" tabindex="0">lossless</span>
+    <span class="definition">Compressing data in a way that preserves all data and allows full recovery of the original.</span> 
+    or <span class="vocab-term" tabindex="0">lossy</span>
+    <span class="definition">Compressing data in a way that discards some data and makes it impossible to recover the original.</span>.
   </p>
   <img src="binarysignal.png" alt="Illustration of digital binary signal" />
 </section>
@@ -129,7 +177,16 @@
 <section>
   <h2>Unit 2: Computer Systems and Networks Vocabulary</h2>
   <p>
-    The <span class="vocab-term" tabindex="0">Internet Protocol (IP)</span><span class="definition">Assigns unique IP addresses to devices and determines how data is routed between them.</span> helps route <span class="vocab-term" tabindex="0">packets</span><span class="definition">Small chunks of data into which larger messages are divided for transmission.</span> through routers along the fastest <span class="vocab-term" tabindex="0">path</span><span class="definition">The series of connections between computing devices on a network, starting with the sender and ending with the receiver.</span>. This system is designed for <span class="vocab-term" tabindex="0">fault tolerance</span><span class="definition">A system’s ability to continue functioning even if individual components fail.</span> and <span class="vocab-term" tabindex="0">scalability</span><span class="definition">The ability of a system to expand or contract to meet new demands.</span>.
+    The <span class="vocab-term" tabindex="0">Internet Protocol (IP)</span>
+    <span class="definition">Assigns unique IP addresses to devices and determines how data is routed between them.</span> helps route 
+    <span class="vocab-term" tabindex="0">packets</span>
+    <span class="definition">Small chunks of data into which larger messages are divided for transmission.</span> through routers along the fastest 
+    <span class="vocab-term" tabindex="0">path</span>
+    <span class="definition">The series of connections between computing devices on a network, starting with the sender and ending with the receiver.</span>. 
+    This system is designed for <span class="vocab-term" tabindex="0">fault tolerance</span>
+    <span class="definition">A system’s ability to continue functioning even if individual components fail.</span> and 
+    <span class="vocab-term" tabindex="0">scalability</span>
+    <span class="definition">The ability of a system to expand or contract to meet new demands.</span>.
   </p>
   <img src="map.jpg" alt="Illustrative map of internet connections" />
 </section>
@@ -143,24 +200,10 @@
   <p class="sub-sub-text">(Replace the video source file "internet-how-it-works.mp4" with your own video about the internet)</p>
 </section>
 
-<footer>
-  &copy; 2025 Hania
-</footer>
-
-<script>
-  // Toggle vocabulary definitions on click or keyboard Enter/Space
-  document.querySelectorAll('.vocab-term').forEach(term => {
-    term.addEventListener('click', () => {
-      term.classList.toggle('active');
-    });
-    term.addEventListener('keydown', e => {
-      if(e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        term.classList.toggle('active');
-      }
-    });
-  });
-</script>
-
-</body>
-</html>
+<!-- 🌟 NEW SECTION: Social Media Algorithms -->
+<section>
+  <h2>Social Media Algorithms</h2>
+  <p>
+    Social media feeds are personalized using <span class="vocab-term" tabindex="0">algorithms</span>
+    <span class="definition">A set of rules a computer follows to solve problems or make decisions.</span>. 
+    These algorithms look at what you like, comment on, and share — and then try to guess
